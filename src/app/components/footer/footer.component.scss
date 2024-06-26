@@ -1,7 +1,3 @@
-footer {
-    background-color: var(--background);
-}
-
 .text-verde {
     color: var(--primary);
 }
@@ -116,38 +112,38 @@ footer {
     cursor: pointer;
     scale: 1.1;
     background-color: #00ff00;
-}
 
-.card1:hover .whatsapp {
-    color: white;
+    .whatsapp {
+        color: white;
+    }
 }
 
 .card2:hover {
     cursor: pointer;
     scale: 1.1;
     background-color: #0077b5;
-}
 
-.card2:hover .linkedin {
-    color: white;
+    .linkedin {
+        color: white;
+    }
 }
 
 .card3:hover {
     cursor: pointer;
     scale: 1.1;
     background-color: black;
-}
 
-.card3:hover .github {
-    color: white;
+    .github {
+        color: white;
+    }
 }
 
 .card4:hover {
     cursor: pointer;
     scale: 1.1;
     background-color: #8c9eff;
-}
 
-.card4:hover .discord {
-    color: white;
+    .discord {
+        color: white;
+    }
 }
