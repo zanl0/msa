@@ -1,0 +1,149 @@
+.text-verde {
+    color: var(--primary);
+}
+
+.border-footer-txt {
+    border-bottom: 4px var(--primary) solid;
+}
+
+.parrafo {
+    width: 600px;
+}
+
+/* redes sociales */
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 0.5em;
+}
+
+.up {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.down {
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card1 {
+    width: 70px;
+    height: 70px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.whatsapp {
+    margin-top: 0.8em;
+    margin-left: 0.6em;
+    color: #00ff00;
+    font-size: 30px;
+}
+
+.card2 {
+    width: 70px;
+    height: 70px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.linkedin {
+    margin-top: 0.8em;
+    margin-left: -0.8em;
+    font-size: 30px;
+    color: #0077b5;
+}
+
+.card3 {
+    width: 70px;
+    height: 70px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.github {
+    margin-top: -0.6em;
+    margin-left: 0.6em;
+    font-size: 30px;
+}
+
+.card4 {
+    width: 70px;
+    height: 70px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.discord {
+    margin-top: -1.9em;
+    margin-left: -0.8em;
+    color: #8c9eff;
+    font-size: 25px;
+}
+
+.card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #00ff00;
+
+    .whatsapp {
+        color: white;
+    }
+}
+
+.card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #0077b5;
+
+    .linkedin {
+        color: white;
+    }
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+
+    .github {
+        color: white;
+    }
+}
+
+.card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+
+    .discord {
+        color: white;
+    }
+}
