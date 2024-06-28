@@ -1,0 +1,36 @@
+
+/* carrusel */
+.colorcarru1 {
+    background: var(--secondary);
+}
+
+.colorcarru {
+    background: #626567;
+}
+
+.flechaderecha {
+    transform: translateX(50px);
+}
+
+.flechaizquierda {
+    transform: translateX(-50px);
+}
+
+.minimo-h {
+    min-height: 370px;
+}
+
+.minimo-h2 {
+    min-height: 370px;
+}
+
+.botonverde {
+    background-color: var(--primary);
+}
+
+.tamaño {
+    width: auto;
+    height: 265px;
+
+}
+
