@@ -1,0 +1,43 @@
+.categoria {
+    border: 2px solid var(--white);
+
+    &:hover {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    &.active-button {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+}
+
+th,
+td {
+    background-color: transparent;
+}
+
+.bg-green {
+    background-color: var(--primary);
+}
+
+.button {
+    &.edit:hover {
+        background-color: var(--bs-warning);
+        color: var(--background) !important;
+    }
+
+    &.delete:hover {
+        background-color: var(--bs-danger);
+        color: var(--background) !important;
+    }
+
+    &.image:hover {
+        background-color: var(--bs-primary);
+    }
+}
+
+.btn-separator {
+    min-height: 100%;
+    border: 1px solid var(--white);
+}
