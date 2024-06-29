@@ -8,19 +8,12 @@
     background: #626567;
 }
 
-.flechaderecha {
-    transform: translateX(50px);
-}
-
-.flechaizquierda {
-    transform: translateX(-50px);
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
 }
 
 .minimo-h {
-    min-height: 370px;
-}
-
-.minimo-h2 {
     min-height: 370px;
 }
 
@@ -28,9 +21,7 @@
     background-color: var(--primary);
 }
 
-.tamaño {
+.tamano {
     width: auto;
     height: 265px;
-
 }
-

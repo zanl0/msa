@@ -6,10 +6,10 @@ import Product from '../../../models/productos';
     selector: 'app-productos',
     standalone: true,
     imports: [ModalContentComponent],
-    templateUrl: './productos.component.html',
-    styleUrl: './productos.component.scss',
+    templateUrl: './productos-admin.component.html',
+    styleUrl: './productos-admin.component.scss',
 })
-export class ProductosComponent {
+export class ProductosAdminComponent {
     title: string = 'componentes';
     modalTitle: string = '';
     urlImage: string = '';
