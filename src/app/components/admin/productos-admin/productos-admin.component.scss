@@ -19,6 +19,15 @@ td {
 
 .bg-green {
     background-color: var(--primary);
+    color: var(--white);
+
+    &:hover {
+        background-color: var(--primary-hover);
+    }
+
+    &:active {
+        color: var(--white);
+    }
 }
 
 .button {

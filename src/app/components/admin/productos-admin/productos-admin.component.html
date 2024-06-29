@@ -1,5 +1,5 @@
 <section
-    class="text-white d-flex justify-content-between align-items-center px-4"
+    class="text-white d-flex justify-content-between align-items-center px-4 py-3"
 >
     <h3>Administración de {{ title }}</h3>
     <article class="d-flex gap-2">
@@ -51,10 +51,10 @@
                     <td class="text-nowrap">
                         &dollar; {{ producto.precio.toLocaleString() }}
                     </td>
-                    <td>
+                    <td class="text-center">
                         <button
                             type="button"
-                            class="btn"
+                            class="btn p-0 border-0"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
                             (click)="
@@ -69,17 +69,18 @@
                             ></i>
                         </button>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <div class="d-flex">
-                            <button type="button" class="btn">
+                            <button type="button" class="btn p-0 border-0">
                                 <i
                                     class="button edit fa-solid fa-pen text-warning p-2 rounded-5"
                                 ></i>
                             </button>
-                            <div class="btn-separator my-2"></div>
-                            <button type="button" class="btn">
+                            <div class="btn-separator m-2"></div>
+                            <button type="button" class="btn p-0 border-0">
                                 <i
                                     class="button delete fa-solid fa-trash text-danger p-2 rounded-5"
+                                    (click)="deleteComponent(producto._id)"
                                 ></i>
                             </button>
                         </div>
@@ -88,6 +89,13 @@
                 }
             </tbody>
         </table>
+        <button
+            type="button"
+            class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
+        >
+            Agregar
+            <i class="fa-solid fa-circle-plus ms-2"></i>
+        </button>
     </div>
 </section>
 
