@@ -15,3 +15,16 @@
 body {
     background-color: var(--background) !important;
 }
+
+.bg-green {
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+
+    &:hover {
+        background-color: var(--primary-hover) !important;
+    }
+
+    &:active {
+        color: var(--white) !important;
+    }
+}

@@ -17,10 +17,6 @@ td {
     background-color: transparent;
 }
 
-.bg-green {
-    background-color: var(--primary);
-}
-
 .button {
     &.edit:hover {
         background-color: var(--bs-warning);

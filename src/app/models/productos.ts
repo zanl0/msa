@@ -1,5 +1,5 @@
 export default interface Product {
-    _id: string;
+    _id?: string;
     producto: string;
     marca: string;
     modelo: string;
