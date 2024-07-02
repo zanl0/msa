@@ -1,0 +1,74 @@
+$shadow-color: rgba(0, 0, 0, 0.25);
+$separator-color: rgba(255, 255, 255, 0.5);
+$google-hover-color: rgba(255, 255, 255, 0.7);
+
+.Bverde {
+    color: var(--primary);
+}
+
+.small-form {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.input {
+    min-width: 400px;
+}
+
+.barras {
+    border-bottom: 4px solid var(--primary);
+}
+
+.sombra {
+    box-shadow: 0px 5px 5px 0px $shadow-color;
+}
+
+.text-options {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.btn-login {
+    background-color: var(--primary);
+    color: var(--white);
+
+    &:hover {
+        background-color: var(--primary-hover);
+    }
+}
+
+.btn-google {
+    background-color: var(--white);
+    color: var(--background);
+
+    &:hover {
+        background-color: $google-hover-color;
+    }
+}
+
+.tx-o {
+    font-size: 0.9rem;
+    color: $separator-color;
+}
+
+.line {
+    border-bottom: 1px solid $separator-color;
+}
+
+$elcolor: var(--primary);
+$elotrocolor: rgba(var(--primary), .25);
+.check {
+    &:checked {
+        border-color: var(--primary);
+        background-color: var(--primary);
+    }
+
+    &:focus {
+        outline: 0;
+        border-color: var(--primary-hover);
+        box-shadow: 0 0 0 0.25rem rgba(#30b728, 0.25);
+        /* box-shadow: 0 0 0 0.25rem $elotrocolor; */
+        /* box-shadow:  0 0 0 0.25rem rgba(var(--primary) 0.25); */
+        /* box-shadow:  0 0 0 0.25rem rgba($elcolor 0.25); */
+    }
+}
