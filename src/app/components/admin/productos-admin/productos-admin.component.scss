@@ -17,19 +17,6 @@ td {
     background-color: transparent;
 }
 
-.bg-green {
-    background-color: var(--primary);
-    color: var(--white);
-
-    &:hover {
-        background-color: var(--primary-hover);
-    }
-
-    &:active {
-        color: var(--white);
-    }
-}
-
 .button {
     &.edit:hover {
         background-color: var(--bs-warning);

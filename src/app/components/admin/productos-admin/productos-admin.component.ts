@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import Product from '../../../models/productos';
 import { ComponentesService } from '../../../services/componentes.service';
 import { ModalContentComponent } from '../../dynamic/modal-content/modal-content.component';
+import { RouterTestingHarness } from '@angular/router/testing';
 
 @Component({
     selector: 'app-productos',
@@ -14,7 +15,10 @@ import { ModalContentComponent } from '../../dynamic/modal-content/modal-content
 export class ProductosAdminComponent {
     title: string = 'componentes';
     modalTitle: string = '';
-    urlImage: string = '';
+    modalButton: string = 'Agregar';
+    showImage: boolean = true;
+    urlImage: string | undefined = '';
+    componentId: string | undefined = '';
 
     productos: Product[] = [];
 
@@ -30,11 +34,7 @@ export class ProductosAdminComponent {
         });
     }
 
-    updateComponent(id: string) {
-        return;
-    }
-
-    deleteComponent(id: string) {
+    deleteComponent(producto: string, id?: string) {
         Swal.fire({
             title: '¿Eliminar?',
             text: 'No es posible revertir este cambio',
@@ -45,18 +45,40 @@ export class ProductosAdminComponent {
             confirmButtonText: 'Eliminar',
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: '¡Eliminado!',
-                    text: `Producto ${id} eliminado satisfactoriamente`,
-                    icon: 'success',
-                    confirmButtonColor: 'var(--primary)',
+                this._api.deleteComponent(id).subscribe((data: any) => {
+                    Swal.fire({
+                        title: '¡Eliminado!',
+                        text: `${producto} eliminado satisfactoriamente`,
+                        icon: 'success',
+                        timer: 2500,
+                        showConfirmButton: false,
+                    });
+                    this.productos.splice(
+                        this.productos.findIndex(
+                            (producto) => producto._id === id,
+                        ),
+                        1,
+                    );
                 });
             }
         });
     }
 
-    setImage(modalTitle: string, urlImage: string) {
+    setModalContent(modalTitle: string, showImage: boolean, element?: string) {
         this.modalTitle = modalTitle;
-        this.urlImage = urlImage;
+        this.showImage = showImage;
+
+        const idRegex = /^[0-9a-fA-F]{24}$/;
+        if (element && idRegex.test(element)) {
+            this.componentId = element;
+            this.modalButton = 'Modificar';
+        } else {
+            this.urlImage = element;
+            this.modalButton = 'Agregar';
+        }
+    }
+
+    updateTable(product: Product) {
+        this.getProducts();
     }
 }

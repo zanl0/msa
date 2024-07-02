@@ -6,29 +6,27 @@ import Product from '../models/productos';
     providedIn: 'root',
 })
 export class ComponentesService {
-    private url = 'http://localhost:3000/api/v1';
+    private url = 'http://localhost:3000/api/v1/components';
 
     constructor(private http: HttpClient) {}
 
     getComponents() {
-        console.log(`${this.url}/components`);
-
-        return this.http.get(`${this.url}/components`);
+        return this.http.get(this.url);
     }
 
-    getComponentById() {
-        return;
+    getComponentById(id: string) {
+        return this.http.get(`${this.url}/${id}`);
     }
 
     postComponent(product: Product) {
-        return this.http.post(`${this.url}/components`, product);
+        return this.http.post(this.url, product);
     }
 
-    updateComponent() {
-        return;
+    putComponent(id: string, product: Product) {
+        return this.http.put(`${this.url}/${id}`, product);
     }
 
-    deleteComponent() {
-        return;
+    deleteComponent(id?: string) {
+        return this.http.delete(`${this.url}/${id}`);
     }
 }
