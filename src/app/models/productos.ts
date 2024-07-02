@@ -1,4 +1,4 @@
-export default interface Product {
+export interface Product {
     _id?: string;
     producto: string;
     marca: string;

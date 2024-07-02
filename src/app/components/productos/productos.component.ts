@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
+import { Product } from '../../models/productos';
 import { CarruselComponent } from '../carrusel/carrusel.component';
-import Product from '../../models/productos';
 
 @Component({
-  selector: 'app-productos',
-  standalone: true,
-  imports: [CarruselComponent],
-  templateUrl: './productos.component.html',
-  styleUrl: './productos.component.scss'
+    selector: 'app-productos',
+    standalone: true,
+    imports: [CarruselComponent],
+    templateUrl: './productos.component.html',
+    styleUrl: './productos.component.scss',
 })
 export class ProductosComponent {
-    arreglo:string[] =[
-        "frecuencia: 5.60 GHz",
-        "Nucleos:24",
-        "Subprocesos:32",
+    arreglo: string[] = [
+        'frecuencia: 5.60 GHz',
+        'Nucleos:24',
+        'Subprocesos:32',
         "$2'299.000",
-    ]
+    ];
     productos: Product[] = [
         {
             _id: '1',
@@ -29,7 +29,7 @@ export class ProductosComponent {
             ],
             precio: 2299000,
             imagen: 'https://jesistem.com/wp-content/uploads/2023/04/13900F-600x450.png',
-            claseHTML: "col-6"
+            claseHTML: 'col-6',
         },
         {
             _id: '2',
@@ -44,7 +44,7 @@ export class ProductosComponent {
             ],
             precio: 899000,
             imagen: 'https://asset.msi.com/resize/image/global/product/product_16427334892956384d918b2f8ecc4693bcd3ef27e6.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '3',
@@ -58,7 +58,7 @@ export class ProductosComponent {
             ],
             precio: 1499000,
             imagen: 'https://static.wixstatic.com/media/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '1',
@@ -72,7 +72,7 @@ export class ProductosComponent {
             ],
             precio: 2299000,
             imagen: 'https://jesistem.com/wp-content/uploads/2023/04/13900F-600x450.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '2',
@@ -87,7 +87,7 @@ export class ProductosComponent {
             ],
             precio: 899000,
             imagen: 'https://asset.msi.com/resize/image/global/product/product_16427334892956384d918b2f8ecc4693bcd3ef27e6.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '3',
@@ -101,7 +101,7 @@ export class ProductosComponent {
             ],
             precio: 1499000,
             imagen: 'https://static.wixstatic.com/media/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png',
-            claseHTML: "col-6"
+            claseHTML: 'col-6',
         },
         {
             _id: '1',
@@ -115,7 +115,7 @@ export class ProductosComponent {
             ],
             precio: 2299000,
             imagen: 'https://jesistem.com/wp-content/uploads/2023/04/13900F-600x450.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '2',
@@ -130,7 +130,7 @@ export class ProductosComponent {
             ],
             precio: 899000,
             imagen: 'https://asset.msi.com/resize/image/global/product/product_16427334892956384d918b2f8ecc4693bcd3ef27e6.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '3',
@@ -144,7 +144,7 @@ export class ProductosComponent {
             ],
             precio: 1499000,
             imagen: 'https://static.wixstatic.com/media/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
         {
             _id: '3',
@@ -158,8 +158,7 @@ export class ProductosComponent {
             ],
             precio: 1499000,
             imagen: 'https://static.wixstatic.com/media/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ff5fa3_142b288366be4821bc6bb621f04e4323~mv2.png',
-            claseHTML: "col-3"
+            claseHTML: 'col-3',
         },
     ];
-
 }
