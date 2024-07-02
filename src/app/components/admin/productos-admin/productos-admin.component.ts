@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import Product from '../../../models/productos';
+import { Product } from '../../../models/productos';
 import { ComponentesService } from '../../../services/componentes.service';
 import { ModalContentComponent } from '../../dynamic/modal-content/modal-content.component';
-import { RouterTestingHarness } from '@angular/router/testing';
 
 @Component({
     selector: 'app-productos',

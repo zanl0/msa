@@ -12,7 +12,7 @@ import {
     Validators,
 } from '@angular/forms';
 import Swal from 'sweetalert2';
-import Product from '../../../models/productos';
+import { Product } from '../../../models/productos';
 import { ComponentesService } from '../../../services/componentes.service';
 
 @Component({
