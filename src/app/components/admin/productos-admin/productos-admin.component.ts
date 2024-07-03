@@ -13,7 +13,6 @@ import { ModalImageComponent } from '../../dynamic/modal-image/modal-image.compo
     styleUrl: './productos-admin.component.scss',
 })
 export class ProductosAdminComponent {
-    title: string = 'componentes';
     modalTitle: string = '';
     modalButton: string = 'Agregar';
     urlImage: string = '';
