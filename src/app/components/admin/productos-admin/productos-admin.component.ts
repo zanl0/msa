@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalContentComponent } from '../../dynamic/modal-content/modal-content.component';
-import Product from '../../../models/productos';
+import { Product } from '../../../models/productos';
 
 @Component({
     selector: 'app-productos',
