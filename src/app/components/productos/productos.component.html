@@ -1,54 +1,62 @@
 <app-carrusel />
 
 <div>
-    <div class="col-12  text-white p-4">
-
+    <div class="col-12 text-white px-1 py-4">
         <div class="d-flex justify-content-between ">
-            <h2 class="ps-3">Productos</h2>
+            <h3 class="ps-4">Productos</h3>
             <section class="text-white d-flex justify-content-between align-items-center px-4">
 
                 <article class="d-flex gap-2">
-                    <button class="bordersito  btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6">
+                    <button
+                        class="bordersito  btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6">
                         Usuarios
                     </button>
                     <button
-                        class=" bordersito btn btn-outline-secondary  btn px-3 py-1 rounded-5 text-white fw-bold fs-6 active-button">
+                        class="bordersito btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6 active-button">
                         Componentes
                     </button>
-                    <button class=" bordersito btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6">
+                    <button
+                        class="bordersito btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6">
                         Pedidos
                     </button>
                 </article>
             </section>
         </div>
     </div>
-    <div class="row mb-4 px-3 ">
+    <div class="row mb-4 px-4 g-3">
         @for (producto of productos; track producto._id) {
-            <div [class]="'px-2 '+producto.claseHTML">
-                <div class="item">
-                    <section class=" texto-xs   " [class.d-flex]="producto.claseHTML == 'col-6'">
-                        <div class="">
-                            <div class="texto-l2">
-                                <div class="texto-xs texto-l2">
-                                    <h2 class="texto-xs m-0">{{ producto.producto }}</h2>
-                                    @for (item of producto.caracteristicas; track $index) {
-                                    <p class="m-0">{{item}}</p>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <img class="imgs2"
-                                [src]="producto.imagen"
-                                alt="">
-                        </div>
-                    </section>
+        @if (producto.size != 'big') {
+        <div class="px-2 col-3">
+            <section class="item p-3">
+                <div class="texto-xs">
+                    <h4 class="m-0 fs-5">{{ producto.producto }}</h4>
+                    @for (item of producto.caracteristicas; track $index) {
+                    <p class="m-0">{{item}}</p>
+                    }
+                    <p class="mt-2 mb-0 fw-bold fs-6">&dollar; {{ producto.precio.toLocaleString() }}</p>
                 </div>
-            </div>
+                <div class="d-flex justify-content-end">
+                    <img [src]="producto.imagen" alt="" width="200">
+                </div>
+            </section>
+        </div>
+        } @else {
+        <div class="px-2 col-6">
+            <section class="item p-4 d-flex justify-content-between align-items-center">
+                <div>
+                    <h4>{{ producto.producto }}</h4>
+                    @for (item of producto.caracteristicas; track $index) {
+                    <p class="m-0">{{ item }}</p>
+                    }
+                    <p class="mt-2 fw-bold fs-5">&dollar; {{ producto.precio.toLocaleString() }}</p>
+                </div>
+                <div>
+                    <img [src]="producto.imagen" alt="" width="250">
+                </div>
+            </section>
+        </div>
+        }
         }
 
     </div>
-
-
-
 </div>

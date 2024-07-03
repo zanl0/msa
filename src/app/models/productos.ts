@@ -6,5 +6,5 @@ export interface Product {
     caracteristicas: string[];
     precio: number;
     imagen: string;
-    claseHTML?: string
+    size?: string
 }
