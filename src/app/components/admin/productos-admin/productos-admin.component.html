@@ -60,11 +60,10 @@
                                 type="button"
                                 class="btn p-0 border-0"
                                 data-bs-toggle="modal"
-                                data-bs-target="#modalComponentes"
+                                data-bs-target="#modalImagenes"
                                 (click)="
-                                    setModalContent(
+                                    showImage(
                                         'Imagen ' + producto.marca,
-                                        true,
                                         producto.imagen
                                     )
                                 "
@@ -84,7 +83,6 @@
                                         (click)="
                                             setModalContent(
                                                 'Modificar componente',
-                                                false,
                                                 producto._id
                                             )
                                         "
@@ -113,7 +111,7 @@
             class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
             data-bs-toggle="modal"
             data-bs-target="#modalComponentes"
-            (click)="setModalContent('Agregar componente', false)"
+            (click)="setModalContent('Agregar componente')"
         >
             Agregar
             <i class="fa-solid fa-circle-plus ms-2"></i>
@@ -121,7 +119,22 @@
     </div>
 </section>
 
-<!-- Modal -->
+<!-- Modal imagenes -->
+<div
+    class="modal fade"
+    id="modalImagenes"
+    tabindex="-1"
+    aria-labelledby="modalImagenesLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-modal-image [title]="modalTitle" [image]="urlImage" />
+        </div>
+    </div>
+</div>
+
+<!-- Modal formulario -->
 <div
     class="modal fade"
     id="modalComponentes"
@@ -131,16 +144,12 @@
 >
     <div class="modal-dialog">
         <div class="modal-content">
-            @if (showImage) {
-                <app-modal-content [title]="modalTitle" [image]="urlImage" />
-            } @else {
-                <app-modal-content
-                    [title]="modalTitle"
-                    [id]="componentId"
-                    [button]="modalButton"
-                    (addProductEvent)="updateTable($event)"
-                />
-            }
+            <app-modal-content
+                [title]="modalTitle"
+                [id]="componentId"
+                [button]="modalButton"
+                (addProductEvent)="updateTable($event)"
+            />
         </div>
     </div>
 </div>

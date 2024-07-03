@@ -26,7 +26,6 @@ export class ModalContentComponent {
     @Input() title: string = '';
     @Input() button: string = '';
     @Input() id: string | undefined = '';
-    @Input() image: string | undefined = '';
 
     @Output() addProductEvent = new EventEmitter<any>();
 
@@ -95,7 +94,7 @@ export class ModalContentComponent {
                         });
                         this.addProductEvent.emit(data);
                     });
-                this.id = undefined;
+                /* this.id = undefined; */
             } else {
                 this._api.postComponent(product).subscribe((data: any) => {
                     this.formProducts.reset();
