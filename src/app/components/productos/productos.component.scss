@@ -1,3 +1,9 @@
+.small {
+    position: absolute;
+    bottom: 24px;
+    right: 0;
+}
+
 .bordersito {
     border: 2px solid var(--white);
 
@@ -5,7 +11,6 @@
         background-color: var(--primary);
         border-color: var(--primary);
     }
-
 }
 
 .item {
@@ -17,25 +22,22 @@
 }
 
 .texto-xs {
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
-
-
 
 .card-button {
     border: 2px solid var(--white);
     color: var(--white);
     display: flex;
-    padding: .3em;
+    padding: 0.3em;
 
     border-radius: 50px;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 1rem;
     margin-right: 1rem;
-
 
     &:hover {
         border: 2px solid var(--primary);

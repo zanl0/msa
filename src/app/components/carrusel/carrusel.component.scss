@@ -1,12 +1,10 @@
-
 /* carrusel */
 .colorcarru1 {
     background: var(--secondary);
 }
 
-
-.publicidad{
-color: var(--primary);
+.publicidad {
+    color: var(--primary);
 }
 
 .colorcarru {
@@ -19,17 +17,9 @@ color: var(--primary);
 }
 
 .minimo-h {
-    min-height: 370px;
+    height: 320px;
 }
 
-
-.botonverde {
-    background-color: var(--primary);
-}
-
-.tamano {
-    /* width: auto; */
-    object-fit: cover;
-    /* z-index: 1; */
-    height: 265px;
+.descripcion {
+    line-height: 1.2rem;
 }
