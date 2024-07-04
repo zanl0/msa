@@ -1,25 +1,3 @@
-<section
-    class="text-white d-flex justify-content-between align-items-center px-4 py-3"
->
-    <h3>Administración de {{ title }}</h3>
-    <article class="d-flex gap-2">
-        <button
-            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6"
-        >
-            Usuarios
-        </button>
-        <button
-            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6 active-button"
-        >
-            Componentes
-        </button>
-        <button
-            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6"
-        >
-            Pedidos
-        </button>
-    </article>
-</section>
 <section>
     <div class="table-responsive container">
         <table class="table table-dark align-middle">
@@ -31,7 +9,7 @@
                     <th scope="col">Características</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Imagen</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -60,11 +38,10 @@
                                 type="button"
                                 class="btn p-0 border-0"
                                 data-bs-toggle="modal"
-                                data-bs-target="#modalComponentes"
+                                data-bs-target="#modalImagenes"
                                 (click)="
-                                    setModalContent(
+                                    showImage(
                                         'Imagen ' + producto.marca,
-                                        true,
                                         producto.imagen
                                     )
                                 "
@@ -75,7 +52,7 @@
                             </button>
                         </td>
                         <td class="text-center">
-                            <div class="d-flex">
+                            <div class="d-flex justify-content-center">
                                 <button type="button" class="btn p-0 border-0">
                                     <i
                                         class="button edit fa-solid fa-pen text-warning p-2 rounded-5"
@@ -84,7 +61,6 @@
                                         (click)="
                                             setModalContent(
                                                 'Modificar componente',
-                                                false,
                                                 producto._id
                                             )
                                         "
@@ -113,7 +89,7 @@
             class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
             data-bs-toggle="modal"
             data-bs-target="#modalComponentes"
-            (click)="setModalContent('Agregar componente', false)"
+            (click)="setModalContent('Agregar componente')"
         >
             Agregar
             <i class="fa-solid fa-circle-plus ms-2"></i>
@@ -121,7 +97,22 @@
     </div>
 </section>
 
-<!-- Modal -->
+<!-- Modal imagenes -->
+<div
+    class="modal fade"
+    id="modalImagenes"
+    tabindex="-1"
+    aria-labelledby="modalImagenesLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-modal-image [title]="modalTitle" [image]="urlImage" />
+        </div>
+    </div>
+</div>
+
+<!-- Modal formulario -->
 <div
     class="modal fade"
     id="modalComponentes"
@@ -131,16 +122,12 @@
 >
     <div class="modal-dialog">
         <div class="modal-content">
-            @if (showImage) {
-                <app-modal-content [title]="modalTitle" [image]="urlImage" />
-            } @else {
-                <app-modal-content
-                    [title]="modalTitle"
-                    [id]="componentId"
-                    [button]="modalButton"
-                    (addProductEvent)="updateTable($event)"
-                />
-            }
+            <app-modal-componentes
+                [title]="modalTitle"
+                [id]="componentId"
+                [button]="modalButton"
+                (addProductEvent)="updateTable($event)"
+            />
         </div>
     </div>
 </div>

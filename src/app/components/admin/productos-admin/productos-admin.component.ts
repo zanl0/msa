@@ -2,24 +2,23 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Product } from '../../../models/productos';
 import { ComponentesService } from '../../../services/componentes/componentes.service';
-import { ModalContentComponent } from '../../dynamic/modal-content/modal-content.component';
+import { ModalComponentesComponent } from '../../dynamic/modal-componentes/modal-componentes.component';
+import { ModalImageComponent } from '../../dynamic/modal-image/modal-image.component';
 
 @Component({
-    selector: 'app-productos',
+    selector: 'app-productos-admin',
     standalone: true,
-    imports: [ModalContentComponent],
+    imports: [ModalImageComponent, ModalComponentesComponent],
     templateUrl: './productos-admin.component.html',
     styleUrl: './productos-admin.component.scss',
 })
 export class ProductosAdminComponent {
-    title: string = 'componentes';
+    productos: Product[] = [];
+
     modalTitle: string = '';
     modalButton: string = 'Agregar';
-    showImage: boolean = true;
-    urlImage: string | undefined = '';
+    urlImage: string = '';
     componentId: string | undefined = '';
-
-    productos: Product[] = [];
 
     constructor(private _api: ComponentesService) {}
 
@@ -63,16 +62,19 @@ export class ProductosAdminComponent {
         });
     }
 
-    setModalContent(modalTitle: string, showImage: boolean, element?: string) {
+    showImage(modalTitle: string, urlImage: string) {
         this.modalTitle = modalTitle;
-        this.showImage = showImage;
+        this.urlImage = urlImage;
+    }
+
+    setModalContent(modalTitle: string, id?: string) {
+        this.modalTitle = modalTitle;
 
         const idRegex = /^[0-9a-fA-F]{24}$/;
-        if (element && idRegex.test(element)) {
-            this.componentId = element;
+        if (id && idRegex.test(id)) {
+            this.componentId = id;
             this.modalButton = 'Modificar';
         } else {
-            this.urlImage = element;
             this.modalButton = 'Agregar';
         }
     }

@@ -1,0 +1,43 @@
+<section
+    class="text-white d-flex justify-content-between align-items-center px-4 py-3"
+>
+    <h3>Administración de {{ title }}</h3>
+    <article class="d-flex gap-2">
+        <button
+            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6"
+            [class.active-button]="title === 'usuarios'"
+            (click)="setComponent('usuarios')"
+        >
+            Usuarios
+        </button>
+        <button
+            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6"
+            [class.active-button]="title === 'componentes'"
+            (click)="setComponent('componentes')"
+        >
+            Componentes
+        </button>
+        <button
+            class="categoria btn px-3 py-1 rounded-5 text-white fw-bold fs-6"
+            [class.active-button]="title === 'pedidos'"
+            (click)="setComponent('pedidos')"
+        >
+            Pedidos
+        </button>
+    </article>
+</section>
+
+@switch (title) {
+    @case ("componentes") {
+        <app-productos-admin />
+    }
+    @case ("usuarios") {
+        <app-usuarios-admin />
+    }
+    @case ("pedidos") {
+        <p class="text-white">{{ title }}</p>
+    }
+    @default {
+        <p class="text-white">No encontrado</p>
+    }
+}

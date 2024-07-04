@@ -1,0 +1,12 @@
+.check {
+    &:checked {
+        border-color: var(--primary);
+        background-color: var(--primary);
+    }
+
+    &:focus {
+        outline: 0;
+        border-color: var(--primary-hover);
+        box-shadow: 0 0 0 0.25rem rgba(#30b728, 0.25);
+    }
+}

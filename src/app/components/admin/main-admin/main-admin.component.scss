@@ -1,0 +1,13 @@
+.categoria {
+    border: 2px solid var(--white);
+
+    &:hover {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    &.active-button {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+}

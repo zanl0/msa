@@ -56,7 +56,7 @@ $google-hover-color: rgba(255, 255, 255, 0.7);
 }
 
 $elcolor: var(--primary);
-$elotrocolor: rgba(var(--primary), .25);
+$elotrocolor: rgba(var(--primary), 0.25);
 .check {
     &:checked {
         border-color: var(--primary);
@@ -67,8 +67,8 @@ $elotrocolor: rgba(var(--primary), .25);
         outline: 0;
         border-color: var(--primary-hover);
         box-shadow: 0 0 0 0.25rem rgba(#30b728, 0.25);
-        /* box-shadow: 0 0 0 0.25rem $elotrocolor; */
-        /* box-shadow:  0 0 0 0.25rem rgba(var(--primary) 0.25); */
-        /* box-shadow:  0 0 0 0.25rem rgba($elcolor 0.25); */
+        //box-shadow: 0 0 0 0.25rem $elotrocolor;
+        //box-shadow:  0 0 0 0.25rem rgba(var(--primary), 0.25);
+        //box-shadow:  0 0 0 0.25rem rgba($elcolor, 0.25);
     }
 }

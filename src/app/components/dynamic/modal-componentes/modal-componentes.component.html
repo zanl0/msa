@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h2 class="modal-title fs-5">{{ title }}</h2>
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+    ></button>
+</div>
+<div class="modal-body d-flex justify-content-center align-items-center">
+    <form class="row g-3" [formGroup]="formProducts" (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <label for="producto" class="form-label">Producto</label>
+            <input
+                type="text"
+                class="form-control"
+                id="producto"
+                formControlName="producto"
+                placeholder="Nombre del producto"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label for="marca" class="form-label">Marca</label>
+            <input
+                type="text"
+                class="form-control"
+                id="marca"
+                formControlName="marca"
+                placeholder="Marca del producto"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label for="modelo" class="form-label">Modelo</label>
+            <input
+                type="text"
+                class="form-control"
+                id="modelo"
+                formControlName="modelo"
+                placeholder="Modelo del producto"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="caracteristicas" class="form-label">
+                Características
+                <span class="little-text">(Separado por comas)</span>
+            </label>
+            <input
+                type="text"
+                class="form-control"
+                id="caracteristicas"
+                formControlName="caracteristicas"
+                placeholder="ej. Frecuencia: 2.6GHz, Generación: 12"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="precio" class="form-label">Precio</label>
+            <div class="input-group">
+                <span class="input-group-text">&dollar;</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="precio"
+                    formControlName="precio"
+                    placeholder="Precio del producto"
+                    required
+                />
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input
+                type="text"
+                class="form-control"
+                id="imagen"
+                formControlName="imagen"
+                placeholder="URL de la imagen"
+                required
+            />
+        </div>
+
+        <div class="col-12 d-flex justify-content-center">
+            <button
+                type="submit"
+                class="btn bg-green px-4"
+                data-bs-dismiss="modal"
+                [disabled]="!formProducts.valid"
+            >
+                {{ button }}
+            </button>
+        </div>
+    </form>
+</div>
