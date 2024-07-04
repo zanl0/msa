@@ -29,4 +29,8 @@ export class PedidosService {
     deleteOrder(id?: string) {
         return this.http.delete(`${this.url}/${id}`);
     }
+
+    clearCart() {
+        return this.http.delete(`${this.url}/all`);
+    }
 }
