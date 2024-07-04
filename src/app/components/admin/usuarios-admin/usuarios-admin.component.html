@@ -1,0 +1,104 @@
+<section>
+    <div class="table-responsive container">
+        <table class="table table-dark align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Clave</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Admin</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @for (usuario of usuarios; track usuario._id) {
+                    <tr>
+                        <td>{{ usuario.usuario }}</td>
+                        <td class="d-flex align-items-center gap-2">
+                            @if (show) {
+                                <td>{{ usuario.clave }}</td>
+                            }
+                            <button
+                                type="button"
+                                class="btn p-0 border-0 rounded-5"
+                                (click)="showPassword()"
+                            >
+                                <i
+                                    class="button eye fa-solid text-white p-2 rounded-5"
+                                    [ngClass]="show ? 'fa-eye-slash' : 'fa-eye'"
+                                ></i>
+                            </button>
+                        </td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.telefono }}</td>
+                        <td>{{ usuario.correo }}</td>
+                        <td>{{ usuario.admin }}</td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn p-0 border-0">
+                                    <i
+                                        class="button edit fa-solid fa-pen text-warning p-2 rounded-5"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalUsuarios"
+                                        (click)="
+                                            setModalContent(
+                                                'Modificar usuario',
+                                                usuario._id,
+                                                usuario.usuario
+                                            )
+                                        "
+                                    ></i>
+                                </button>
+                                <div class="btn-separator m-2"></div>
+                                <button type="button" class="btn p-0 border-0">
+                                    <i
+                                        class="button delete fa-solid fa-trash text-danger p-2 rounded-5"
+                                        (click)="
+                                            deleteComponent(
+                                                usuario.usuario,
+                                                usuario._id
+                                            )
+                                        "
+                                    ></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button
+            type="button"
+            class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
+            data-bs-toggle="modal"
+            data-bs-target="#modalUsuarios"
+            (click)="setModalContent('Crear usuario')"
+        >
+            Agregar
+            <i class="fa-solid fa-circle-plus ms-2"></i>
+        </button>
+    </div>
+</section>
+
+<!-- Modal formulario -->
+<div
+    class="modal fade"
+    id="modalUsuarios"
+    tabindex="-1"
+    aria-labelledby="modalUsuariosLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-modal-usuarios
+                [title]="modalTitle"
+                [id]="userId"
+                [username]="username"
+                [button]="modalButton"
+                (addUserEvent)="updateTable($event)"
+            />
+        </div>
+    </div>
+</div>

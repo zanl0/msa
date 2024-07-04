@@ -1,0 +1,25 @@
+th,
+td {
+    background-color: transparent;
+}
+
+.button {
+    &.edit:hover {
+        background-color: var(--bs-warning);
+        color: var(--background) !important;
+    }
+
+    &.delete:hover {
+        background-color: var(--bs-danger);
+        color: var(--background) !important;
+    }
+
+    &.eye:hover {
+        background-color: var(--bs-secondary);
+    }
+}
+
+.btn-separator {
+    min-height: 100%;
+    border: 1px solid var(--white);
+}

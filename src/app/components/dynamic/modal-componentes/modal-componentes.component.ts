@@ -16,21 +16,21 @@ import { Product } from '../../../models/productos';
 import { ComponentesService } from '../../../services/componentes.service';
 
 @Component({
-    selector: 'app-modal-content',
+    selector: 'app-modal-componentes',
     standalone: true,
     imports: [ReactiveFormsModule],
-    templateUrl: './modal-content.component.html',
-    styleUrl: './modal-content.component.scss',
+    templateUrl: './modal-componentes.component.html',
+    styleUrl: './modal-componentes.component.scss',
 })
-export class ModalContentComponent {
+export class ModalComponentesComponent {
+    private numberPattern = /^[0-9]+$/;
+    formProducts: FormGroup;
+
     @Input() title: string = '';
     @Input() button: string = '';
     @Input() id: string | undefined = '';
 
     @Output() addProductEvent = new EventEmitter<any>();
-
-    private numberPattern = /^[0-9]+$/;
-    formProducts: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -50,7 +50,7 @@ export class ModalContentComponent {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (changes['title']) this.formProducts.reset();
+        if (changes['id'] || changes['title']) this.formProducts.reset();
         if (this.id && changes['id']) this.feedForm(this.id);
     }
 
@@ -94,7 +94,6 @@ export class ModalContentComponent {
                         });
                         this.addProductEvent.emit(data);
                     });
-                /* this.id = undefined; */
             } else {
                 this._api.postComponent(product).subscribe((data: any) => {
                     this.formProducts.reset();
