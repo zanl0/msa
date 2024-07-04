@@ -33,7 +33,7 @@ export class UsuariosAdminComponent {
         });
     }
 
-    deleteComponent(user: string, id?: string) {
+    deleteUser(user: string, id?: string) {
         Swal.fire({
             title: '¿Eliminar?',
             text: 'No es posible revertir este cambio',

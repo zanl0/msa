@@ -3,50 +3,48 @@
         <table class="table table-dark align-middle">
             <thead>
                 <tr>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Clave</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Teléfono</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Admin</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Productos</th>
+                    <th scope="col">Medio de pago</th>
+                    <th scope="col">Total</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                @for (usuario of usuarios; track usuario._id) {
+                @for (pedido of pedidos; track pedido._id) {
                     <tr>
-                        <td>{{ usuario.usuario }}</td>
-                        <td class="d-flex align-items-center gap-2">
-                            @if (show) {
-                                <td>{{ usuario.clave }}</td>
-                            }
-                            <button
-                                type="button"
-                                class="btn p-0 border-0 rounded-5"
-                                (click)="showPassword()"
-                            >
-                                <i
-                                    class="button eye fa-solid text-white p-2 rounded-5"
-                                    [ngClass]="show ? 'fa-eye-slash' : 'fa-eye'"
-                                ></i>
-                            </button>
+                        <td>{{ pedido.nombre }}</td>
+                        <td>{{ pedido.correo }}</td>
+                        <td>{{ pedido.telefono }}</td>
+                        <td>{{ pedido.direccion }}</td>
+                        <td>
+                            <ul class="ps-3 m-0">
+                                @for (
+                                    producto of pedido.productos;
+                                    track $index
+                                ) {
+                                    <li class="text-nowrap">
+                                        {{ producto }}
+                                    </li>
+                                }
+                            </ul>
                         </td>
-                        <td>{{ usuario.nombre }}</td>
-                        <td>{{ usuario.telefono }}</td>
-                        <td>{{ usuario.correo }}</td>
-                        <td>{{ usuario.admin }}</td>
+                        <td>{{ pedido.medioPago }}</td>
+                        <td>&dollar; {{ pedido.total.toLocaleString() }}</td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn p-0 border-0">
                                     <i
                                         class="button edit fa-solid fa-pen text-warning p-2 rounded-5"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#modalUsuarios"
+                                        data-bs-target="#modalPedidos"
                                         (click)="
                                             setModalContent(
-                                                'Modificar usuario',
-                                                usuario._id,
-                                                usuario.usuario
+                                                'Modificar un pedido',
+                                                pedido._id
                                             )
                                         "
                                     ></i>
@@ -55,12 +53,7 @@
                                 <button type="button" class="btn p-0 border-0">
                                     <i
                                         class="button delete fa-solid fa-trash text-danger p-2 rounded-5"
-                                        (click)="
-                                            deleteUser(
-                                                usuario.usuario,
-                                                usuario._id
-                                            )
-                                        "
+                                        (click)="deleteOrder(pedido._id)"
                                     ></i>
                                 </button>
                             </div>
@@ -73,8 +66,8 @@
             type="button"
             class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
             data-bs-toggle="modal"
-            data-bs-target="#modalUsuarios"
-            (click)="setModalContent('Crear usuario')"
+            data-bs-target="#modalPedidos"
+            (click)="setModalContent('Agregar un pedido')"
         >
             Agregar
             <i class="fa-solid fa-circle-plus ms-2"></i>
@@ -85,19 +78,18 @@
 <!-- Modal formulario -->
 <div
     class="modal fade"
-    id="modalUsuarios"
+    id="modalPedidos"
     tabindex="-1"
-    aria-labelledby="modalUsuariosLabel"
+    aria-labelledby="modalPedidosLabel"
     aria-hidden="true"
 >
     <div class="modal-dialog">
         <div class="modal-content">
-            <app-modal-usuarios
+            <app-modal-pedidos
                 [title]="modalTitle"
-                [id]="userId"
-                [username]="username"
+                [id]="orderId"
                 [button]="modalButton"
-                (addUserEvent)="updateTable($event)"
+                (addOrderEvent)="updateTable($event)"
             />
         </div>
     </div>
