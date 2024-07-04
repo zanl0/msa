@@ -13,7 +13,7 @@ import {
 } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Product } from '../../../models/productos';
-import { ComponentesService } from '../../../services/componentes.service';
+import { ComponentesService } from '../../../services/componentes/componentes.service';
 
 @Component({
     selector: 'app-modal-componentes',

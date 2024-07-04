@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Product } from '../../../models/productos';
-import { ComponentesService } from '../../../services/componentes.service';
+import { ComponentesService } from '../../../services/componentes/componentes.service';
 import { ModalComponentesComponent } from '../../dynamic/modal-componentes/modal-componentes.component';
 import { ModalImageComponent } from '../../dynamic/modal-image/modal-image.component';
 

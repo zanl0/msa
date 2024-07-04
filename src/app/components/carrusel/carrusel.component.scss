@@ -4,6 +4,11 @@
     background: var(--secondary);
 }
 
+
+.publicidad{
+color: var(--primary);
+}
+
 .colorcarru {
     background: #626567;
 }
@@ -17,11 +22,14 @@
     min-height: 370px;
 }
 
+
 .botonverde {
     background-color: var(--primary);
 }
 
 .tamano {
-    width: auto;
+    /* width: auto; */
+    object-fit: cover;
+    /* z-index: 1; */
     height: 265px;
 }

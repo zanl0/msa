@@ -16,7 +16,7 @@
                         Componentes
                     </button>
                     <button
-                        class="bordersito btn btn-outline-secondary btn px-3 py-1 rounded-5 text-white fw-bold fs-6">
+                        class="bordersito btn btn-outline-secondary btn px-3 py-1  rounded-5 text-white fw-bold fs-6" >
                         Pedidos
                     </button>
                 </article>
@@ -29,15 +29,18 @@
         <div class="px-2 col-3">
             <section class="item p-3">
                 <div class="texto-xs">
-                    <h4 class="m-0 fs-5">{{ producto.producto }}</h4>
+                    <h4 class="m-0 fs-5 w-75">{{ producto.producto }}</h4>
                     @for (item of producto.caracteristicas; track $index) {
                     <p class="m-0">{{item}}</p>
                     }
                     <p class="mt-2 mb-0 fw-bold fs-6">&dollar; {{ producto.precio.toLocaleString() }}</p>
                 </div>
-                <div class="d-flex justify-content-end">
+                <div class=" d-flex justify-content-end ">
                     <img [src]="producto.imagen" alt="" width="200">
                 </div>
+                <button class="card-button btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
             </section>
         </div>
         } @else {
@@ -53,6 +56,9 @@
                 <div>
                     <img [src]="producto.imagen" alt="" width="250">
                 </div>
+                <button class="card-button btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
             </section>
         </div>
         }
