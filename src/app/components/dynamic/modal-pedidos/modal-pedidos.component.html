@@ -1,0 +1,106 @@
+<div class="modal-header">
+    <h2 class="modal-title fs-5">{{ title }}</h2>
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+    ></button>
+</div>
+<div class="modal-body d-flex justify-content-center align-items-center">
+    <form class="row g-3" [formGroup]="formOrders" (ngSubmit)="onSubmit()">
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+                placeholder="Ingrese su nombre"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input
+                type="text"
+                class="form-control"
+                id="telefono"
+                formControlName="telefono"
+                placeholder="Ingrese su teléfono"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="correo" class="form-label">Email</label>
+            <input
+                type="text"
+                class="form-control"
+                id="correo"
+                formControlName="correo"
+                placeholder="Ingrese su correo"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input
+                type="text"
+                class="form-control"
+                id="direccion"
+                formControlName="direccion"
+                placeholder="Ingrese su dirección"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="productos" class="form-label">Productos</label>
+            <span class="little-text"> (Separado por comas)</span>
+            <input
+                type="text"
+                class="form-control"
+                id="productos"
+                formControlName="productos"
+                placeholder="ej. 6686d71180ba71d1b7091004, 6674d8c35a854ca173f0cad4"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label for="medioPago" class="form-label">Medio de pago</label>
+            <select
+                class="form-select"
+                id="medioPago"
+                formControlName="medioPago"
+                required
+            >
+                <option value="" selected>Seleccione</option>
+                <option value="pse">PSE</option>
+                <option value="visa">Visa/Mastercard</option>
+                <option value="paypal">PayPal</option>
+                <option value="mercadopago">Mercado pago</option>
+                <option value="efecty">Efecty (Efectivo)</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="total" class="form-label">Total</label>
+            <input
+                type="text"
+                class="form-control"
+                id="total"
+                formControlName="total"
+                placeholder="Valor total del pedido"
+                required
+            />
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <button
+                type="submit"
+                class="btn bg-green px-4"
+                data-bs-dismiss="modal"
+                [disabled]="!formOrders.valid"
+            >
+                {{ button }}
+            </button>
+        </div>
+    </form>
+</div>

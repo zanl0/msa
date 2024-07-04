@@ -54,6 +54,7 @@ export class ModalUsuariosComponent {
             admin: ['', Validators.required],
         });
     }
+
     ngOnChanges(changes: SimpleChanges) {
         if (changes['id'] || changes['title']) this.formUsers.reset();
         if (this.id && changes['id'] && this.username)
@@ -83,11 +84,6 @@ export class ModalUsuariosComponent {
             };
 
             if (this.id) {
-                console.log(
-                    '🚀 ~ ModalUsuariosComponent ~ onSubmit ~ this.id:',
-                    this.id,
-                );
-
                 this._api.putUser(this.id, user).subscribe((data: any) => {
                     this.formUsers.reset();
                     Swal.fire({
