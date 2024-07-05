@@ -14,7 +14,7 @@ export class ComponentesService {
         return this.http.get(this.url);
     }
 
-    getComponentById(id: string) {
+    getComponentById(id?: string) {
         return this.http.get(`${this.url}/${id}`);
     }
 

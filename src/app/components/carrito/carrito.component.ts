@@ -9,6 +9,8 @@ import { PedidosService } from '../../services/pedidos/pedidos.service';
 import { Order } from '../../models/pedidos';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { CarritoService } from '../../services/carrito/carrito.service';
+import { Carrito } from '../../models/carrito';
 
 @Component({
     selector: 'app-carrito',
@@ -23,10 +25,12 @@ export class CarritoComponent {
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     formPedido: FormGroup;
     total: number = 2597000;
+    carrito: Carrito[] = [];
 
     constructor(
         private formBuilder: FormBuilder,
-        private _api: PedidosService,
+        private _apiPedidos: PedidosService,
+        private _apiCarrito: CarritoService,
         private router: Router,
     ) {
         this.formPedido = this.formBuilder.group({
@@ -43,6 +47,16 @@ export class CarritoComponent {
         });
     }
 
+    ngOnInit() {
+        this.getCartItems();
+    }
+
+    getCartItems() {
+        this._apiCarrito.getCartItems().subscribe((data: any) => {
+            this.carrito = data;
+        });
+    }
+
     onSubmit() {
         if (this.formPedido.valid) {
             const pedido: Order = {
@@ -55,7 +69,7 @@ export class CarritoComponent {
                 total: this.total,
             };
 
-            this._api.postOrder(pedido).subscribe((data: any) => {
+            this._apiPedidos.postOrder(pedido).subscribe((data: any) => {
                 this.formPedido.reset();
                 Swal.fire({
                     title: '¡Creado!',
@@ -65,7 +79,7 @@ export class CarritoComponent {
                     showConfirmButton: false,
                 });
             });
-            this._api.clearCart().subscribe();
+            this._apiPedidos.clearCart().subscribe();
             this.router.navigate(['/']);
         }
     }

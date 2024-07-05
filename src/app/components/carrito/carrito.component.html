@@ -1,6 +1,43 @@
 <div class="container-fluid my-3">
     <div class="row px-3">
         <div class="col-8">
+            @for (cart of carrito; track cart._id) {
+                <div
+                    class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3"
+                >
+                    <div class="d-flex align-items-center">
+                        <img
+                            [src]="cart.imagen"
+                            class="rounded-3"
+                            width="75"
+                            alt="Producto"
+                        />
+                        <div class="algo ps-3">
+                            <p class="m-0 fw-semibold fs-5">
+                                {{ cart.producto }}
+                            </p>
+                            <p class="m-0">{{ cart.marca }}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-light bola">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span class="mx-3 fs-5">1</span>
+                        <button class="btn btn-outline-light bola">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                    <p class="m-0 fs-5 fw-semibold text-nowrap">
+                        &dollar; {{ cart.precio.toLocaleString() }}
+                    </p>
+                    <div class="Basura">
+                        <button class="btn btn-outline-danger bola border-0">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            }
             <div
                 class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3"
             >
