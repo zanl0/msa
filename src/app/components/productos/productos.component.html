@@ -54,7 +54,10 @@
                                 width="200"
                             />
                         </div>
-                        <button class="card-button btn">
+                        <button
+                            class="card-button btn"
+                            (click)="setCartId(producto._id)"
+                        >
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </section>
@@ -79,7 +82,10 @@
                         <div>
                             <img [src]="producto.imagen" alt="" width="250" />
                         </div>
-                        <button class="card-button btn">
+                        <button
+                            class="card-button btn"
+                            (click)="setCartId(producto._id)"
+                        >
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </section>
