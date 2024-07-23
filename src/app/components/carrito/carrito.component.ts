@@ -83,4 +83,6 @@ export class CarritoComponent {
             this.router.navigate(['/']);
         }
     }
+
+        
 }
