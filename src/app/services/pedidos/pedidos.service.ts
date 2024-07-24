@@ -6,7 +6,7 @@ import { Order } from '../../models/pedidos';
     providedIn: 'root',
 })
 export class PedidosService {
-    private url = 'http://localhost:3000/api/v1/orders';
+    private url = 'http://3.145.135.118:3000/api/v1/orders';
 
     constructor(private http: HttpClient) {}
 
