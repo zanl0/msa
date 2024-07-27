@@ -1,0 +1,42 @@
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "20"
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+
+            - name: List dist files
+              run: ls && cd dist && ls
+
+            - name: Configure AWS CLI
+              run: |
+                  mkdir -p ~/.aws
+                  echo "[default]" > ~/.aws/config
+                  echo "aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}" >> ~/.aws/config
+                  echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/config
+                  echo "region = us-east-2" >> ~/.aws/config
+
+            - name: aws s3 delete bucket archives x
+              run: aws s3 rm s3://msa-santi --recursive
+
+            - name: aws s3 upload archives
+              run: aws s3 cp ./dist/msa-santi/browser s3://msa-santi --recursive
