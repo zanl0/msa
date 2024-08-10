@@ -20,7 +20,7 @@ export class ProductosAdminComponent {
     urlImage: string = '';
     componentId: string | undefined = '';
 
-    constructor(private _api: ComponentesService) {}
+    constructor(private _api: ComponentesService) { }
 
     ngOnInit() {
         this.getProducts();
@@ -53,10 +53,8 @@ export class ProductosAdminComponent {
                     });
                     this.productos.splice(
                         this.productos.findIndex(
-                            (producto) => producto._id === id,
-                        ),
-                        1,
-                    );
+                            (producto) => producto._id === id
+                        ),1);
                 });
             }
         });
