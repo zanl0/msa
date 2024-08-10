@@ -6,7 +6,7 @@ import { User } from '../../models/usuarios';
     providedIn: 'root',
 })
 export class UsuariosService {
-    private url = 'http://3.145.135.118:3000/api/v1/users';
+    private url = 'http://localhost:3000/api/v1/users';
 
     constructor(private http: HttpClient) {}
 

@@ -14,83 +14,64 @@
             </thead>
             <tbody class="table-group-divider">
                 @for (producto of productos; track producto._id) {
-                    <tr>
-                        <td>{{ producto.producto }}</td>
-                        <td>{{ producto.marca }}</td>
-                        <td>{{ producto.modelo }}</td>
-                        <td>
-                            <ul class="ps-3 m-0">
-                                @for (
-                                    caracteristica of producto.caracteristicas;
-                                    track $index
-                                ) {
-                                    <li class="text-nowrap">
-                                        {{ caracteristica }}
-                                    </li>
-                                }
-                            </ul>
-                        </td>
-                        <td class="text-nowrap">
-                            &dollar; {{ producto.precio.toLocaleString() }}
-                        </td>
-                        <td class="text-center">
-                            <button
-                                type="button"
-                                class="btn p-0 border-0"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalImagenes"
-                                (click)="
+                <tr>
+                    <td>{{ producto.producto }}</td>
+                    <td>{{ producto.marca }}</td>
+                    <td>{{ producto.modelo }}</td>
+                    <td>
+                        <ul class="ps-3 m-0">
+                            @for (
+                            caracteristica of producto.caracteristicas;
+                            track $index
+                            ) {
+                            <li class="text-nowrap">
+                                {{ caracteristica }}
+                            </li>
+                            }
+                        </ul>
+                    </td>
+                    <td class="text-nowrap">
+                        &dollar; {{ producto.precio.toLocaleString() }}
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
+                            data-bs-target="#modalImagenes" (click)="
                                     showImage(
                                         'Imagen ' + producto.marca,
                                         producto.imagen
                                     )
-                                "
-                            >
-                                <i
-                                    class="button image fa-solid fa-images text-white p-2 rounded-5"
-                                ></i>
-                            </button>
-                        </td>
-                        <td class="text-center">
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn p-0 border-0">
-                                    <i
-                                        class="button edit fa-solid fa-pen text-warning p-2 rounded-5"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modalComponentes"
-                                        (click)="
+                                ">
+                            <i class="button image fa-solid fa-images text-white p-2 rounded-5"></i>
+                        </button>
+                    </td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn p-0 border-0">
+                                <i class="button edit fa-solid fa-pen text-warning p-2 rounded-5" data-bs-toggle="modal"
+                                    data-bs-target="#modalComponentes" (click)="
                                             setModalContent(
                                                 'Modificar componente',
                                                 producto._id
                                             )
-                                        "
-                                    ></i>
-                                </button>
-                                <div class="btn-separator m-2"></div>
-                                <button type="button" class="btn p-0 border-0">
-                                    <i
-                                        class="button delete fa-solid fa-trash text-danger p-2 rounded-5"
-                                        (click)="
+                                        "></i>
+                            </button>
+                            <div class="btn-separator m-2"></div>
+                            <button type="button" class="btn p-0 border-0">
+                                <i class="button delete fa-solid fa-trash text-danger p-2 rounded-5" (click)="
                                             deleteComponent(
                                                 producto.producto,
                                                 producto._id
                                             )
-                                        "
-                                    ></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                                        "></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
-        <button
-            type="button"
-            class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5"
-            data-bs-toggle="modal"
-            data-bs-target="#modalComponentes"
-            (click)="setModalContent('Agregar componente')"
-        >
+        <button type="button" class="btn bg-green d-block ms-auto px-3 fw-bold rounded-5" data-bs-toggle="modal"
+            data-bs-target="#modalComponentes" (click)="setModalContent('Agregar componente')">
             Agregar
             <i class="fa-solid fa-circle-plus ms-2"></i>
         </button>
@@ -98,13 +79,7 @@
 </section>
 
 <!-- Modal imagenes -->
-<div
-    class="modal fade"
-    id="modalImagenes"
-    tabindex="-1"
-    aria-labelledby="modalImagenesLabel"
-    aria-hidden="true"
->
+<div class="modal fade" id="modalImagenes" tabindex="-1" aria-labelledby="modalImagenesLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <app-modal-image [title]="modalTitle" [image]="urlImage" />
@@ -113,21 +88,11 @@
 </div>
 
 <!-- Modal formulario -->
-<div
-    class="modal fade"
-    id="modalComponentes"
-    tabindex="-1"
-    aria-labelledby="modalComponentesLabel"
-    aria-hidden="true"
->
+<div class="modal fade" id="modalComponentes" tabindex="-1" aria-labelledby="modalComponentesLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <app-modal-componentes
-                [title]="modalTitle"
-                [id]="componentId"
-                [button]="modalButton"
-                (addProductEvent)="updateTable($event)"
-            />
+            <app-modal-componentes [title]="modalTitle" [id]="componentId" [button]="modalButton"
+                (addProductEvent)="updateTable($event)" />
         </div>
     </div>
 </div>

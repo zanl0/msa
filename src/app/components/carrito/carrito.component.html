@@ -2,52 +2,39 @@
     <div class="row px-3">
         <div class="col-8">
             @for (cart of carrito; track cart._id) {
-                <div
-                    class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3"
-                >
-                    <div class="d-flex align-items-center">
-                        <img
-                            [src]="cart.imagen"
-                            class="rounded-3"
-                            width="75"
-                            alt="Producto"
-                        />
-                        <div class="algo ps-3">
-                            <p class="m-0 fw-semibold fs-5">
-                                {{ cart.producto }}
-                            </p>
-                            <p class="m-0">{{ cart.marca }}</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <button class="btn btn-outline-light bola">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <span class="mx-3 fs-5">1</span>
-                        <button class="btn btn-outline-light bola">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
-                    <p class="m-0 fs-5 fw-semibold text-nowrap">
-                        &dollar; {{ cart.precio.toLocaleString() }}
-                    </p>
-                    <div class="Basura">
-                        <button class="btn btn-outline-danger bola border-0">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+            <div class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                    <img [src]="cart.imagen" class="rounded-3" width="75" alt="Producto" />
+                    <div class="algo ps-3">
+                        <p class="m-0 fw-semibold fs-5">
+                            {{ cart.producto }}
+                        </p>
+                        <p class="m-0">{{ cart.marca }}</p>
                     </div>
                 </div>
-            }
-            <div
-                class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3"
-            >
                 <div class="d-flex align-items-center">
-                    <img
-                        src="https://www.mrpc.com.co/wp-content/uploads/2023/06/002-19.png"
-                        class="rounded-3"
-                        width="75"
-                        alt="Producto"
-                    />
+                    <button class="btn btn-outline-light bola">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="mx-3 fs-5">1</span>
+                    <button class="btn btn-outline-light bola">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <p class="m-0 fs-5 fw-semibold text-nowrap">
+                    &dollar; {{ cart.precio.toLocaleString() }}
+                </p>
+                <div class="Basura">
+                    <button class="btn btn-outline-danger bola border-0">
+                        <i class="fa-solid fa-trash" (click)="deleteComponentCar(cart.producto, cart._id)"></i>
+                    </button>
+                </div>
+            </div>
+            }
+            <div class="producto rounded-3 p-3 d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                    <img src="https://www.mrpc.com.co/wp-content/uploads/2023/06/002-19.png" class="rounded-3"
+                        width="75" alt="Producto" />
                     <div class="ps-3">
                         <p class="m-0 fw-semibold fs-5">
                             Memoria RAM 32GB Vengeance RGB
@@ -78,97 +65,47 @@
             <form class="row" [formGroup]="formPedido" (ngSubmit)="onSubmit()">
                 <div class="col-md-6 mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input
-                        type="text"
-                        class="form-control borde"
-                        id="nombre"
-                        formControlName="nombre"
-                        placeholder="Ingresa tu nombre"
-                    />
+                    <input type="text" class="form-control borde" id="nombre" formControlName="nombre"
+                        placeholder="Ingresa tu nombre" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="telefono" class="form-label">Teléfono</label>
-                    <input
-                        type="text"
-                        class="form-control borde"
-                        id="telefono"
-                        formControlName="telefono"
-                        placeholder="Ingresa tu teléfono"
-                    />
+                    <input type="text" class="form-control borde" id="telefono" formControlName="telefono"
+                        placeholder="Ingresa tu teléfono" />
                 </div>
                 <div class="col-12 mb-3">
                     <label for="correo" class="form-label">Correo</label>
-                    <input
-                        type="text"
-                        class="form-control borde"
-                        id="correo"
-                        formControlName="correo"
-                        placeholder="Ingresa tu correo electrónico"
-                    />
+                    <input type="text" class="form-control borde" id="correo" formControlName="correo"
+                        placeholder="Ingresa tu correo electrónico" />
                 </div>
                 <div class="col-12 mb-3">
                     <label for="direccion" class="form-label">Dirección</label>
-                    <input
-                        type="text"
-                        class="form-control borde"
-                        id="direccion"
-                        formControlName="direccion"
-                        placeholder="Ingresa tu dirección de residencia"
-                    />
+                    <input type="text" class="form-control borde" id="direccion" formControlName="direccion"
+                        placeholder="Ingresa tu dirección de residencia" />
                 </div>
                 <div class="col-12 mb-3">
                     <label class="form-label">Medio de pago</label>
-                    <div
-                        class="payment-methods mb-4 d-flex justify-content-between"
-                    >
-                        <button
-                            class="card d-flex justify-content-center medios border-0"
-                            type="button"
-                        >
-                            <img
-                                src="https://assets.static-gm.com/Assets/cc0f2490-9e46-41eb-86f2-1f581d7a84b7/78b060f3-615c-44e1-9790-4e538aa04eeb/v-1621976606/Desktop.webp"
-                                alt=""
-                            />
+                    <div class="payment-methods mb-4 d-flex justify-content-between">
+                        <button class="card d-flex justify-content-center medios border-0" type="button">
+                            <img src="https://assets.static-gm.com/Assets/cc0f2490-9e46-41eb-86f2-1f581d7a84b7/78b060f3-615c-44e1-9790-4e538aa04eeb/v-1621976606/Desktop.webp"
+                                alt="" />
                         </button>
 
-                        <button
-                            class="card d-flex justify-content-center medios border-0"
-                            type="button"
-                        >
-                            <img
-                                src="https://www.freepnglogos.com/uploads/visa-card-logo-9.png"
-                                alt=""
-                            />
+                        <button class="card d-flex justify-content-center medios border-0" type="button">
+                            <img src="https://www.freepnglogos.com/uploads/visa-card-logo-9.png" alt="" />
                         </button>
 
-                        <button
-                            class="card d-flex justify-content-center medios border-0"
-                            type="button"
-                        >
-                            <img
-                                src="https://www.freepnglogos.com/uploads/paypal-logo-png-32.png"
-                                alt=""
-                            />
+                        <button class="card d-flex justify-content-center medios border-0" type="button">
+                            <img src="https://www.freepnglogos.com/uploads/paypal-logo-png-32.png" alt="" />
                         </button>
 
-                        <button
-                            class="card d-flex justify-content-center medios border-0"
-                            type="button"
-                        >
-                            <img
-                                src="https://help.turitop.com/hc/article_attachments/360013282039/isologoVertical.png"
-                                alt=""
-                            />
+                        <button class="card d-flex justify-content-center medios border-0" type="button">
+                            <img src="https://help.turitop.com/hc/article_attachments/360013282039/isologoVertical.png"
+                                alt="" />
                         </button>
 
-                        <button
-                            class="card d-flex justify-content-center medios border-0"
-                            type="button"
-                        >
-                            <img
-                                src="https://familiaincatec.edu.co/wp-content/uploads/2022/12/Efecty-png.png"
-                                alt=""
-                            />
+                        <button class="card d-flex justify-content-center medios border-0" type="button">
+                            <img src="https://familiaincatec.edu.co/wp-content/uploads/2022/12/Efecty-png.png" alt="" />
                         </button>
                     </div>
                 </div>
@@ -185,20 +122,12 @@
                         <span class="fw-bold">Envío</span>
                         <span>$ 0</span>
                     </div>
-                    <div
-                        class="d-flex justify-content-between font-weight-bold mt-3 fs-5"
-                    >
+                    <div class="d-flex justify-content-between font-weight-bold mt-3 fs-5">
                         <span class="fw-bold">Total</span>
-                        <span class="fw-bold"
-                            >&dollar; {{ total.toLocaleString() }}</span
-                        >
+                        <span class="fw-bold">&dollar; {{ total.toLocaleString() }}</span>
                     </div>
                 </div>
-                <button
-                    class="btn bg-green border-0 mt-4 w-100 fw-bold"
-                    type="submit"
-                    [disabled]="!formPedido.valid"
-                >
+                <button class="btn bg-green border-0 mt-4 w-100 fw-bold" type="submit" [disabled]="!formPedido.valid">
                     Finalizar
                 </button>
             </form>

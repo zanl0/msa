@@ -6,7 +6,7 @@ import { Carrito } from '../../models/carrito';
     providedIn: 'root',
 })
 export class CarritoService {
-    private url = 'http://3.145.135.118:3000/api/v1/cart';
+    private url = 'http://localhost:3000/api/v1/cart';
 
     constructor(private http: HttpClient) {}
 

@@ -30,7 +30,7 @@
     <div class="row mb-4 px-3 g-3">
         @for (producto of productos; track producto._id) {
             @if (producto.size != "big") {
-                <div class="col-3">
+                <div class="col-lg-3">
                     <section class="item p-3">
                         <div class="texto-xs">
                             <h4 class="m-0 fs-5 w-75">
@@ -58,12 +58,12 @@
                             class="card-button btn"
                             (click)="setCartId(producto._id)"
                         >
-                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-cart-shopping" ></i>
                         </button>
                     </section>
                 </div>
             } @else {
-                <div class="col-6">
+                <div class="col-lg-6">
                     <section
                         class="item p-4 d-flex justify-content-between align-items-center"
                     >

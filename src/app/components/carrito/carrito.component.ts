@@ -84,5 +84,38 @@ export class CarritoComponent {
         }
     }
 
-        
+// Método Delete carrito
+
+    deleteComponentCar(producto: string, id?: string) {
+        Swal.fire({
+            title: '¿Eliminar?',
+            text: '¿Desea eliminar de su carrito este producto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'var(--primary)',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this._apiCarrito.deleteCartItem(id).subscribe((data: any) => {
+                    Swal.fire({
+                        title: '¡Eliminado!',
+                        text: `${producto} eliminado satisfactoriamente`,
+                        icon: 'success',
+                        timer: 2500,
+                        showConfirmButton: false,
+                    });
+                    this.carrito.splice(
+                        this.carrito.findIndex(
+                            (productoCarrito) => productoCarrito._id === id
+                        ), 1)
+                })
+            }
+        })
+    }
+
+
+
+
+
 }
