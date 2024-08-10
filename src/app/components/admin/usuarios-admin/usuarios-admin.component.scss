@@ -23,3 +23,9 @@ td {
     min-height: 100%;
     border: 1px solid var(--white);
 }
+
+@media (max-width: 390px) {
+    .btn-separator {
+        min-height: 50%;
+    }
+}
