@@ -6,8 +6,8 @@
                     <th scope="col">Usuario</th>
                     <th scope="col">Clave</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Correo</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Teléfono</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Correo</th>
                     <th scope="col">Admin</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
@@ -32,8 +32,8 @@
                             </button>
                         </td>
                         <td>{{ usuario.nombre }}</td>
-                        <td>{{ usuario.telefono }}</td>
-                        <td>{{ usuario.correo }}</td>
+                        <td class="d-none d-lg-table-cell"> {{ usuario.telefono }}</td>
+                        <td class="d-none d-lg-table-cell">{{ usuario.correo }}</td>
                         <td>{{ usuario.admin }}</td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center">
