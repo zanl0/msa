@@ -5,10 +5,10 @@
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Productos</th>
-                    <th scope="col">Medio de pago</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Teléfono</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Dirección</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Productos</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Medio de pago</th>
                     <th scope="col">Total</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
@@ -18,9 +18,9 @@
                     <tr>
                         <td>{{ pedido.nombre }}</td>
                         <td>{{ pedido.correo }}</td>
-                        <td>{{ pedido.telefono }}</td>
-                        <td>{{ pedido.direccion }}</td>
-                        <td>
+                        <td class="d-none d-lg-table-cell">{{ pedido.telefono }}</td>
+                        <td class="d-none d-lg-table-cell">{{ pedido.direccion }}</td>
+                        <td class="d-none d-lg-table-cell">
                             <ul class="ps-3 m-0">
                                 @for (
                                     producto of pedido.productos;
@@ -32,7 +32,7 @@
                                 }
                             </ul>
                         </td>
-                        <td>{{ pedido.medioPago }}</td>
+                        <td class="d-none d-lg-table-cell">{{ pedido.medioPago }}</td>
                         <td>&dollar; {{ pedido.total.toLocaleString() }}</td>
                         <td class="text-center">
                             <div class="d-flex justify-content-center">

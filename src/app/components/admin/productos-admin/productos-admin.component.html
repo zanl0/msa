@@ -5,10 +5,10 @@
                 <tr>
                     <th scope="col">Producto</th>
                     <th scope="col">Marca</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Características</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Modelo</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Características</th>
                     <th scope="col">Precio</th>
-                    <th scope="col">Imagen</th>
+                    <th scope="col" class="d-none d-lg-table-cell">Imagen</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -17,9 +17,9 @@
                     <tr>
                         <td>{{ producto.producto }}</td>
                         <td>{{ producto.marca }}</td>
-                        <td>{{ producto.modelo }}</td>
-                        <td>
-                            <ul class="ps-3 m-0">
+                        <td class="d-none d-lg-table-cell">{{ producto.modelo }}</td>
+                        <td class="d-none d-lg-table-cell">
+                            <ul class="ps-3 m-0 ">
                                 @for (
                                     caracteristica of producto.caracteristicas;
                                     track $index
@@ -33,7 +33,7 @@
                         <td class="text-nowrap">
                             &dollar; {{ producto.precio.toLocaleString() }}
                         </td>
-                        <td class="text-center">
+                        <td class="text-center d-none d-lg-table-cell">
                             <button
                                 type="button"
                                 class="btn p-0 border-0"

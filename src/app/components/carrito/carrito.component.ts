@@ -27,6 +27,7 @@ export class CarritoComponent {
     total: number = 2597000;
     carrito: Carrito[] = [];
 
+
     constructor(
         private formBuilder: FormBuilder,
         private _apiPedidos: PedidosService,
@@ -50,6 +51,8 @@ export class CarritoComponent {
     ngOnInit() {
         this.getCartItems();
     }
+
+
 
     getCartItems() {
         this._apiCarrito.getCartItems().subscribe((data: any) => {
