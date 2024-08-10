@@ -57,6 +57,7 @@ $google-hover-color: rgba(255, 255, 255, 0.7);
 
 $elcolor: var(--primary);
 $elotrocolor: rgba(var(--primary), 0.25);
+
 .check {
     &:checked {
         border-color: var(--primary);
@@ -70,5 +71,62 @@ $elotrocolor: rgba(var(--primary), 0.25);
         //box-shadow: 0 0 0 0.25rem $elotrocolor;
         //box-shadow:  0 0 0 0.25rem rgba(var(--primary), 0.25);
         //box-shadow:  0 0 0 0.25rem rgba($elcolor, 0.25);
+    }
+}
+
+
+// estilo ojo contraseña
+
+/*------ Settings ------*/
+.container {
+    --color: #30b728;
+    --size: 20px;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+
+}
+
+.container .eye {
+    position: absolute;
+    animation: keyframes-fill .5s;
+}
+
+.container .eye-slash {
+    position: absolute;
+    animation: keyframes-fill .5s;
+    display: none;
+}
+
+/* ------ On check event ------ */
+.container input:checked~.eye {
+    display: none;
+}
+
+.container input:checked~.eye-slash {
+    display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
     }
 }
