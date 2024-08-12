@@ -14,23 +14,23 @@
 .main {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-
-    gap: 0.5em;
+    gap: 0.3em;
 }
 
 .up {
     display: flex;
     justify-content: end;
     flex-direction: row;
-    gap: 0.5em;
+
 }
 
 .down {
     display: flex;
     justify-content: end;
     flex-direction: row;
-    gap: 0.5em;
+
 }
 
 .card1 {
@@ -151,3 +151,4 @@
         color: white;
     }
 }
+
