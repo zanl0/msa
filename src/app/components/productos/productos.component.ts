@@ -5,6 +5,7 @@ import { ComponentesService } from '../../services/componentes/componentes.servi
 import { Router } from '@angular/router';
 import { CarritoService } from '../../services/carrito/carrito.service';
 import { Carrito } from '../../models/carrito';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-productos',
@@ -35,9 +36,37 @@ export class ProductosComponent {
     }
 
     setCartId(id?: string) {
-        this.cartId = id;
-        this.getProductInfo(id);
+
+        Swal.fire({
+            title: '¿Agregar?',
+            text: '¿Desea agregar este producto a su carrito?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: 'var(--primary)',
+            cancelButtonColor: '#b33',
+            confirmButtonText: 'Añadir',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this._apiComponentes.getComponentById(id).subscribe((data:any)=>{
+                    Swal.fire({
+                        title: '¡Agregado!',
+                        text: `El producto ha sido agregado satisfactoriamente a su carrito`,
+                        icon: 'success',
+                        timer: 2500,
+                        showConfirmButton: false,
+                    });
+                    this.cartId = id;
+                    this.getProductInfo(id);
+                })
+
+            }
+        })
+
+
     }
+
+
+
 
     getProductInfo(idProduct?: string) {
         this._apiComponentes
@@ -59,4 +88,6 @@ export class ProductosComponent {
                 });
             });
     }
+
+
 }
