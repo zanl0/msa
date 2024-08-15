@@ -6,7 +6,7 @@ import { Product } from '../../models/productos';
     providedIn: 'root',
 })
 export class ComponentesService {
-    private url = 'http://3.16.129.0:3000/api/v1/components';
+    private url = 'http://18.118.160.34:3000/api/v1/components';
 
     constructor(private http: HttpClient) {}
 

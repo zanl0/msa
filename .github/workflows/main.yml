@@ -36,7 +36,7 @@ jobs:
                   echo "region = us-east-2" >> ~/.aws/config
 
             - name: aws s3 delete bucket archives x
-              run: aws s3 rm s3://msa-santi --recursive
+              run: aws s3 rm s3://msa-f --recursive
 
             - name: aws s3 upload archives
-              run: aws s3 cp ./dist/msa-santi/browser s3://msa-santi --recursive
+              run: aws s3 cp ./dist/msa/browser s3://msa-f --recursive
